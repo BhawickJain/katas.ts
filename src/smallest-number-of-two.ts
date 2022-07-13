@@ -17,9 +17,8 @@ RETURN smallest
 ----
 */
 
-
 function smallestNumberOfTwo(number_A: number, number_B: number): number {
-  const smallest: number = number_A < number_B ? number_A : number_B
+  const smallest: number = number_A < number_B ? number_A : number_B;
   return smallest;
 }
 

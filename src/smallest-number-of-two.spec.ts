@@ -37,4 +37,3 @@ test("smallestNumberOfTwo returns smallest among a decimal numbers", () => {
   expect(smallestNumberOfTwo(-2, 1.9)).toBe(-2);
   expect(smallestNumberOfTwo(-0.1, 0.2)).toBe(-0.1);
 });
-
