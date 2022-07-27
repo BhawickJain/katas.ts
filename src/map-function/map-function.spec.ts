@@ -19,7 +19,12 @@ test("map returns an array of numbers with double the value of each item", () =>
 });
 
 test("2 -- map retuns properties of an array of objects", () => {
-  const spells = [
+  type Spell = {
+    incantation: string;
+    effect: string;
+    type: string;
+  };
+  const spells: Spell[] = [
     {
       incantation: "Accio",
       effect: "Summons an object",
@@ -37,10 +42,10 @@ test("2 -- map retuns properties of an array of objects", () => {
     },
   ];
 
-  function returnIncantation(spell) {
+  function returnIncantation(spell: Spell) {
     return spell.incantation;
   }
-  function returnType(spell) {
+  function returnType(spell: Spell) {
     return spell.type;
   }
   expect(map(spells, returnIncantation)).toStrictEqual([
@@ -56,7 +61,7 @@ test("3 -- map can manpulate strings", () => {
     map(["h", "e", "l", "l", "o"], (char) => char.toUpperCase()),
   ).toStrictEqual(["H", "E", "L", "L", "O"]);
 
-  function isVowel(s) {
+  function isVowel(s: string) {
     return ["a", "e", "i", "o", "u"].includes(s.toLowerCase());
   }
 
