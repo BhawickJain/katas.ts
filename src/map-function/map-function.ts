@@ -1,4 +1,4 @@
-function map<Type>(arr: Array<Type>, fn: (el: Type) => Type ) {
+const map = <Type>(arr: Array<Type>, fn: (el: Type) => Type ) => {
     
     const mappedArray: Array<Type> = []
 
