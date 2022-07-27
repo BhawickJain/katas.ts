@@ -1,4 +1,7 @@
-const map = <TypeA, TypeB>(arr: Array<TypeA>, fn: (el: TypeA) => TypeB): Array<TypeA | TypeB> => {
+const map = <TypeA, TypeB>(
+  arr: Array<TypeA>,
+  fn: (el: TypeA) => TypeB,
+): Array<TypeA | TypeB> => {
   const mappedArray: Array<TypeB> = [];
 
   arr.forEach((el) => {

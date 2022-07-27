@@ -67,33 +67,35 @@ test("3 -- map can manpulate strings", () => {
   ).toStrictEqual(["h", "E", "l", "l", "O"]);
 });
 
-
 test("4 -- map can be used to extend the object properties in an array of objects", () => {
-  type Details = { 
-      original: string,
-      backwards: string
-    }
+  type Details = {
+    original: string;
+    backwards: string;
+  };
 
   function makeDetails(str: string): Details {
-    return { 
+    return {
       original: str,
       backwards: str.split("").reverse().join(""),
-    }
+    };
   }
-  
+
   const expectedResult: Details[] = [
-    { 
+    {
       original: "Fola",
-      backwards: "aloF"
+      backwards: "aloF",
     },
-    { 
+    {
       original: "Roshni",
-      backwards: "inhsoR"
-    },  
-    { 
+      backwards: "inhsoR",
+    },
+    {
       original: "Soso",
-      backwards: "osoS"
-    },]
-  
-  expect(map(["Fola", "Roshni", "Soso"], makeDetails)).toStrictEqual(expectedResult)
-})
+      backwards: "osoS",
+    },
+  ];
+
+  expect(map(["Fola", "Roshni", "Soso"], makeDetails)).toStrictEqual(
+    expectedResult,
+  );
+});
