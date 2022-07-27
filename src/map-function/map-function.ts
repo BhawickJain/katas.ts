@@ -1,12 +1,11 @@
-const map = <Type>(arr: Array<Type>, fn: (el: Type) => Type ) => {
-    
-    const mappedArray: Array<Type> = []
+const map = <Type>(arr: Array<Type>, fn: (el: Type) => Type): Array<Type> => {
+  const mappedArray: Array<Type> = [];
 
-    arr.forEach((el) => {
-        mappedArray.push(fn(el))
-    })
+  arr.forEach((el) => {
+    mappedArray.push(fn(el));
+  });
 
-    return mappedArray
-}
+  return mappedArray;
+};
 
-export default map
+export default map;
