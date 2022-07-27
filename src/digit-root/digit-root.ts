@@ -14,20 +14,21 @@ Examples:
 493193  -->  4 + 9 + 3 + 1 + 9 + 3 = 29  -->  2 + 9 = 11  -->  1 + 1 = 2
 */
 
-export const digitalRoot = (n:number):number => {
-    const listOfDigits = toListOfDigits(n)
-    const sum = sumArray(listOfDigits)
-    if (sum.toString().length > 1) { return digitalRoot(sum) }
-    return sum
-  };
-  
-  const toListOfDigits = (n: number): number[] => {
-    const strNumber = n.toString()
-    const listOfStr = strNumber.split('')
-    return listOfStr.map(Number)
+export const digitalRoot = (n: number): number => {
+  const listOfDigits = toListOfDigits(n);
+  const sum = sumArray(listOfDigits);
+  if (sum.toString().length > 1) {
+    return digitalRoot(sum);
   }
-  
-  const sumArray = (arrOfNum: number[]): number => {
-      return arrOfNum.reduce((p, c) => p + c)
-  }
-  
+  return sum;
+};
+
+const toListOfDigits = (n: number): number[] => {
+  const strNumber = n.toString();
+  const listOfStr = strNumber.split("");
+  return listOfStr.map(Number);
+};
+
+const sumArray = (arrOfNum: number[]): number => {
+  return arrOfNum.reduce((p, c) => p + c);
+};
