@@ -21,9 +21,8 @@ export const appendCharAsCombination = (chartSet: string[], str: string): string
 };
 
 
-// console.log(generateAllPasswords('a', 1))
-// console.log(generateAllPasswords('a', 2))
-// console.log(generateAllPasswords('ab', 2))
-// console.log(generateAllPasswords('ab!', 3))
-// console.log(generateAllPasswords('ab!', 2))
-// console.log(generateAllPasswords("ab!", 3))
+// console.log(generateAllPasswords('a', 1), ["a"])
+// console.log(generateAllPasswords('a', 2), ["aa"])
+// console.log(generateAllPasswords('ab', 2), ["aa", "ab", "ba", "bb"])
+// console.log(generateAllPasswords('ab!', 3), ["aaa", "aab", "aa!", "aba", "abb", "ab!", "a!a", "a!b", "a!!", "baa", "bab", "ba!", "bba", "bbb", "bb!", "b!a", "b!b", "b!!", "!aa", "!ab", "!a!", "!ba", "!bb", "!b!", "!!a", "!!b", "!!!"])
+// console.log(generateAllPasswords('ab!', 2), ["aa", "ab", "a!", "ba", "bb", "b!", "!a", "!b", "!!"])
