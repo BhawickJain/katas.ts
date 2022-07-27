@@ -1,8 +1,8 @@
-const generateAllPasswords = (charSet: string, length: number): string[] => {
+export const generateAllPasswords = (charSet: string, length: number): string[] => {
   return recursivelyGenerateCombinations(charSet.split(""), length, []);
 };
 
-const recursivelyGenerateCombinations = (
+export const recursivelyGenerateCombinations = (
   charSet: string[],
   length: number,
   partial: string[],
@@ -16,12 +16,10 @@ const recursivelyGenerateCombinations = (
     : recursivelyGenerateCombinations(charSet, length, partialPasswordSet);
 };
 
-const appendCharAsCombination = (chartSet: string[], str: string): string[] => {
+export const appendCharAsCombination = (chartSet: string[], str: string): string[] => {
   return !(str.length > 0) ? chartSet : chartSet.map((c) => `${str}${c}`);
 };
 
-// console.log(appendCharAsCombination("ab".split(''), ""), ["a", "b"])
-// console.log(appendCharAsCombination("ab".split(''), "bb")["bba", "bbb"])
 
 // console.log(generateAllPasswords('a', 1))
 // console.log(generateAllPasswords('a', 2))
