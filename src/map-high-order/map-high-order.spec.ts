@@ -1,4 +1,4 @@
-import map from "./map-function";
+import map from "./map-high-order";
 
 test("1 -- map return an array with an addOne operation against each element", () => {
   const addOne = (num: number): number => num + 1;
