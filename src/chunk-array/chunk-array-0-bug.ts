@@ -18,19 +18,22 @@ chunk([10, 20, 30, 40, 50], 4) -> [[10, 20, 30, 40], [50]]
 */
 
 const chunkArray = (arr: Array<number>, size: number) => {
-  return recurseChunkArray([], arr, size)
-}
+  return recurseChunkArray([], arr, size);
+};
 
-const recurseChunkArray = (prev: number[][], arr: number[], size: number): number[][] => {
-
+// BUG
+const recurseChunkArray = (
+  prev: number[],
+  arr: number[],
+  size: number,
+): number[] => {
   if (arr.length < size) {
-    return [...prev, arr.length? [...arr]]
+    return [...prev, ...arr];
   } else {
-    prev = [...prev, [...arr.slice(0, size)]]
-    console.log(prev)
-    return recurseChunkArray(prev, arr.slice(size), size)
+    prev = [...prev, ...arr.slice(0, size)];
+    console.log(prev);
+    return recurseChunkArray(prev, arr.slice(size), size);
   }
-  
-}
+};
 
-export default chunkArray
+export default chunkArray;
