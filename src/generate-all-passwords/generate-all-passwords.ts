@@ -1,3 +1,10 @@
+/*
+Write a function `generate(alphabet:string[], targetLen:number)` 
+which generates* all of the possible passwords of length `targetLen`
+that can be constructed from the given set of characters, `alphabet`.
+A character may be used more than once.
+*/
+
 export const generateAllPasswords = (
   charSet: string,
   length: number,
