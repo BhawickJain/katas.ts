@@ -5,8 +5,6 @@ const filter = <T>(arr: Array<T>, fn: (el: T) => boolean): Array<T> => {
     fn(el) ? filteredArr.push(el) : "";
   });
 
-  console.log(filteredArr);
-
   return filteredArr;
 };
 

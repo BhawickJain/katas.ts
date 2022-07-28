@@ -1,4 +1,4 @@
-import every from "./every-function";
+import every from "./every-high-order";
 
 test("every returns if numbers in an array are all even", () => {
   const isEven = (el: number) => el % 2 === 0;
