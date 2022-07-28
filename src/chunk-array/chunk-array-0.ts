@@ -21,12 +21,13 @@ const chunkArray = (arr: Array<number>, size: number) => {
   return recurseChunkArray([], arr, size)
 }
 
-const recurseChunkArray = (prev: number[], arr: number[], size: number): number[] => {
+const recurseChunkArray = (prev: number[][], arr: number[], size: number): number[][] => {
 
   if (arr.length < size) {
-    return [...prev, ...arr]
+    return [...prev, arr.length? [...arr]]
   } else {
-    prev = [...prev, ...arr.slice(0, size)]
+    prev = [...prev, [...arr.slice(0, size)]]
+    console.log(prev)
     return recurseChunkArray(prev, arr.slice(size), size)
   }
   
