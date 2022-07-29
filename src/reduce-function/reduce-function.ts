@@ -1,14 +1,17 @@
 // are the T | U types the right approach? have I unnecessarily widened the time signature of prev?
-const reduce = <T, U>(arr: T[], callbackFn: (prev: T | U, curr: T, currentIndex?: number, arr?: T[]) => U, initialValue?: U): T | U => {
+const reduce = <T, U>(
+  arr: T[],
+  callbackFn: (prev: U, curr: T, currentIndex?: number, arr?: T[]) => U,
+  initialValue: U,
+): U => {
+  let prev: U = initialValue
+  
+  for (let i = 0; i < arr.length; i++) {
+    const curr: T = arr[i];
+    prev = callbackFn(prev, curr, i, arr);
+  }
 
-    let prev: T | U = initialValue ? initialValue : arr[0]
+  return prev;
+};
 
-    for (let i = 1; i < arr.length; i++) {
-        const curr: T = arr[i]
-        prev = callbackFn(prev, curr, i, arr)
-    }
-
-    return prev
-}
-
-export default reduce
+export default reduce;
