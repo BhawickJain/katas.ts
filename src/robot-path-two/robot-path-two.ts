@@ -24,39 +24,57 @@ TODO
 */
 
 interface cartesianCoord {
-  n: number,
-  e: number,
+  n: number;
+  e: number;
 }
 
-const compassDir = ['n', 's', 'w', 'e'];
+const compassDir = ["n", "s", "w", "e"];
 
+function reachesAnyDestination(
+  navigation: string[],
+  arrayOfDestinations: string[][],
+): boolean {
+  const cleanedNavigationPath: string[] = clean(navigation);
+  const cleanedDestinationsPaths: string[][] = arrayOfDestinations.map((dest) =>
+    clean(dest),
+  );
 
-function reachesAnyDestination(navigation: string[], arrayOfDestinations: string[][]): boolean {
-  
-  const cleanedNavigationPath: string[] = clean(navigation)
-  const cleanedDestinationsPaths: string[][] = arrayOfDestinations.map((dest) => clean(dest));
-  
-  const shortestNavigationPath: cartesianCoord = cleanedNavigationPath.reduce(reduceDirections,{n:0, e:0})
-  const shortestDestinationsPaths: cartesianCoord[] = cleanedDestinationsPaths.map((dest) => dest.reduce(reduceDirections,{n:0, e:0}));
-  
-  return shortestDestinationsPaths.some((nav) => JSON.stringify(nav) === JSON.stringify(shortestNavigationPath));
+  const shortestNavigationPath: cartesianCoord = cleanedNavigationPath.reduce(
+    reduceDirections,
+    { n: 0, e: 0 },
+  );
+  const shortestDestinationsPaths: cartesianCoord[] =
+    cleanedDestinationsPaths.map((dest) =>
+      dest.reduce(reduceDirections, { n: 0, e: 0 }),
+    );
+
+  return shortestDestinationsPaths.some(
+    (nav) => JSON.stringify(nav) === JSON.stringify(shortestNavigationPath),
+  );
 }
 
 function clean(listOfDirection: string[]): string[] {
-  const separatedDirections: string[] = listOfDirection.join('').split('')  
-  const lowercaseDirections: string[] = separatedDirections.map((dir) => dir.toLowerCase())
-  const directionsOnly: string[] = lowercaseDirections.filter((a) => compassDir.includes(a));
-  
+  const separatedDirections: string[] = listOfDirection.join("").split("");
+  const lowercaseDirections: string[] = separatedDirections.map((dir) =>
+    dir.toLowerCase(),
+  );
+  const directionsOnly: string[] = lowercaseDirections.filter((a) =>
+    compassDir.includes(a),
+  );
+
   return directionsOnly;
 }
 
-function reduceDirections(cartesianValue: cartesianCoord, dir: string): cartesianCoord {
-  if (['n','s'].includes(dir)) {
-    dir==='n'?  cartesianValue.n++ : cartesianValue.n--;
+function reduceDirections(
+  cartesianValue: cartesianCoord,
+  dir: string,
+): cartesianCoord {
+  if (["n", "s"].includes(dir)) {
+    dir === "n" ? cartesianValue.n++ : cartesianValue.n--;
   } else {
-    dir==='e'?  cartesianValue.e++ : cartesianValue.e--;
+    dir === "e" ? cartesianValue.e++ : cartesianValue.e--;
   }
-  return cartesianValue
+  return cartesianValue;
 }
 
-export default reachesAnyDestination
+export default reachesAnyDestination;
