@@ -1,6 +1,7 @@
 /*
 Robot Path 2
 
+CONCEPTS
 navigation
 arrayOfDestinations
 optimalPath
@@ -10,30 +11,13 @@ ASSUMPTIONS
 - input navigation does not  necessary consists of optimal nagivation paths to a specific destination
 - non-compass directions in input are ignored.
 
-cleaning
+CLEANING
  - cancelling ew and ns navigation steps
  - alphabetical ordering
  - lowercase all string items
  - validate 
  - shortestDestinationsPath.join.split('')
  - map(isNavigationStep)
-
-
-reducesToShortestPath
-
-shortestDestinationsPath.map(() => cleaning())
-
-
-["ef","g"].join.split('') -> e, f, g
-
-interface cartesianCoord {
-[e, w, e, s, n].reduce[reduceDirections, new cartesianCoord] -> [0,1] 
-
-e, w -> 
-
-
-
-[0,1] 
 */
 
 interface cartesianCoord {
@@ -71,14 +55,3 @@ function reduceDirections(cartesianValue: cartesianCoord, dir: string): cartesia
   }
   return cartesianValue
 }
-
-// Examples:
-const destinations = [["e", "n", "e", "e", "n"], ["w", "n", "w", "n", "w", "w", "n"]];
-console.log(reachesAnyDestination(["s", "e", "e", "n", "n", "e", "n"], destinations), "expect: true") // should return true
-
-console.log(reachesAnyDestination(["n", "e", "s", "w", "n", "e", "s", "w", "w", "s", "n", "e"], destinations), "expect: false") // should return false
-
-console.log(reachesAnyDestination(["n", "s", "n", "n", "e", "n", "w", "w", "s", "w", "w", "w", "n"], destinations), "expect: true"); //should return true
-
-reachesAnyDestination(["n", "s"], [["e"]]) //should return false
-console.log(reachesAnyDestination(["n", "s"], [[]]), "expect true"); //should return true
