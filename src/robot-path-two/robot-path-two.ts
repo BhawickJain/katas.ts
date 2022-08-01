@@ -55,3 +55,5 @@ function reduceDirections(cartesianValue: cartesianCoord, dir: string): cartesia
   }
   return cartesianValue
 }
+
+export default reachesAnyDestination
