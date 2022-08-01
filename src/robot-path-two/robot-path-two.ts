@@ -18,6 +18,9 @@ CLEANING
  - validate 
  - shortestDestinationsPath.join.split('')
  - map(isNavigationStep)
+
+TODO
+- code it not very readable
 */
 
 interface cartesianCoord {
