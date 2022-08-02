@@ -1,7 +1,7 @@
 import chunkArray from "./chunk-array-0";
 import splitArrays from "./chunk-array-1";
 
-const implementations: ((arr: number[], size: number) => {})[] = [chunkArray, splitArrays]
+const implementations: ((arr: number[], size: number) => number[][])[] = [chunkArray, splitArrays]
 
 implementations.forEach((imp) => {
   test(`${imp.toString()} can return an array with an expect number of arrays`, () => {
