@@ -16,3 +16,5 @@ const splitArrays = (inputArray: number[], groupMaxSize: number) => {
   }
   return sharedArrays;
 };
+
+export default splitArrays;
