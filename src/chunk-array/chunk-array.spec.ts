@@ -7,7 +7,7 @@ const implementations: ((arr: number[], size: number) => number[][])[] = [
 ];
 
 implementations.forEach((imp) => {
-  test(`${imp.toString()} can return an array with an expect number of arrays`, () => {
+  test(`${imp.name} can return an array with an expect number of arrays`, () => {
     expect(imp([1, 2, 3, 4, 5, 6, 7], 4)).toHaveLength(2);
     expect(imp([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13], 4)).toHaveLength(4);
     expect(imp([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 4)).toHaveLength(3);
