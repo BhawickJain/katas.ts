@@ -45,7 +45,7 @@ const countOccurancesOne = (word: string): Dictionary<number> => {
     const count: number = countOccurance(char, word);
     occurances = {
       ...occurances,
-      char: count,
+      [char]: count,
     };
   }
 
