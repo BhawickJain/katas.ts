@@ -1,6 +1,6 @@
 const countDownFrom = (num: number): void => {
   const countDown: string[] = recurseCountDownFrom(num, []);
-  countDown.forEach((el) => console.log(el));
+  // countDown.forEach((el) => console.log(el)); // uncomment for demo
 };
 
 const recurseCountDownFrom = (num: number, partial: string[]): string[] => {
