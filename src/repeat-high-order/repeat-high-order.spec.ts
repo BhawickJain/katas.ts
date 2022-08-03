@@ -1,7 +1,7 @@
 import repeat from "./repeat-high-order";
 
 test("repeat calls a function a certain specified number of times", () => {
-  const print = jest.fn(() => {}); // empty function returns void
+  const print = jest.fn(); // empty function returns void
   // const print = jest.fn(() => console.log("Hello")); // uncomment to see effect
   repeat(5, print);
   expect(print).toBeCalledTimes(5);
