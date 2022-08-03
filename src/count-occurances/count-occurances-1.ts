@@ -34,50 +34,49 @@ RETURN count
 ---
 */
 
-import Dictionary from "./Dictionary"
-
+import Dictionary from "./Dictionary";
 
 const countOccurancesOne = (word: string): Dictionary<number> => {
+  let occurances: Dictionary<number> = {};
 
-    let occurances: Dictionary<number> = {}
-    const uniqueLetters: string = getUniqueLetters(word)
+  const uniqueLetters: string = getUniqueLetters(word);
 
-    for (let char of uniqueLetters) {
-        const count: number = countOccurance(char, word)
-        occurances = {
-            ...occurances,
-            char: count
-        }
-    }
+  for (const char of uniqueLetters) {
+    const count: number = countOccurance(char, word);
+    occurances = {
+      ...occurances,
+      char: count,
+    };
+  }
 
-    return occurances
-}
+  return occurances;
+};
 
 const getUniqueLetters = (word: string) => {
-    let uniqueLetters: string = ""
+  let uniqueLetters = "";
 
-    for (let letter of word) {
-        // if letter is not inside uniqueLetters 
-        //    append to the uniqueLetters
-        if (uniqueLetters.indexOf(letter) === -1) {
-            // string literal template
-            uniqueLetters = `${uniqueLetters}${letter}`
-        }
+  for (const letter of word) {
+    // if letter is not inside uniqueLetters
+    //    append to the uniqueLetters
+    if (uniqueLetters.indexOf(letter) === -1) {
+      // string literal template
+      uniqueLetters = `${uniqueLetters}${letter}`;
     }
+  }
 
-    return uniqueLetters
-}
+  return uniqueLetters;
+};
 
 const countOccurance = (char: string, word: string) => {
-    let count = 0
+  let count = 0;
 
-    for (let letter of word) {
-        if (letter === char) {
-            count = count + 1
-        }
+  for (const letter of word) {
+    if (letter === char) {
+      count = count + 1;
     }
+  }
 
-    return count
-}
+  return count;
+};
 
-export default countOccurancesOne
+export default countOccurancesOne;
