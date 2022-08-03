@@ -30,7 +30,7 @@ const recurseChunkArray = (
     return [...arr].length === 0 ? [...prev] : [...prev, [...arr]];
   } else {
     prev = [...prev, [...arr.slice(0, size)]];
-    console.log(prev);
+    // console.log(prev); // uncomment to see effect
     return recurseChunkArray(prev, arr.slice(size), size);
   }
 };

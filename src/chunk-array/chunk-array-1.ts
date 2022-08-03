@@ -3,7 +3,6 @@ const splitArrays = (inputArray: number[], groupMaxSize: number) => {
   let transformedStartingPoint = 0;
   let transformedMax = groupMaxSize;
   const divideBy = Math.ceil(inputArray.length / groupMaxSize);
-  console.log(divideBy);
 
   for (let i = 0; i < divideBy; i++) {
     const pushArray: number[] = inputArray.slice(
