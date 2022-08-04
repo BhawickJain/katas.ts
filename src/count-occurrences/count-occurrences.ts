@@ -1,4 +1,4 @@
-import OccuranceDictionary from "./OccuranceDictionary";
+import OccuranceDictionary from "./OccurrenceDictionary";
 
 const countOccurances = (listOfWords: string[]): OccuranceDictionary => {
   const occurances: OccuranceDictionary = {};
@@ -12,14 +12,21 @@ const countOccurances = (listOfWords: string[]): OccuranceDictionary => {
 };
 
 const getUniqueWordList = (listOfWords: string[]): string[] => {
-  const uniqueWordList: string[] = []
-  listOfWords.forEach((word) => uniqueWordList.includes(word) || uniqueWordList.push(word))
-  return uniqueWordList
-}
+  const uniqueWordList: string[] = [];
+  listOfWords.forEach(
+    (word) => uniqueWordList.includes(word) || uniqueWordList.push(word),
+  );
+  return uniqueWordList;
+};
 
-const countSingleWordOccurance = (listOfWords: string[], targetWord: string): number => {
-  let count: number = 0;
-  listOfWords.forEach((word) => {count = word === targetWord ? count + 1 : count});
+const countSingleWordOccurance = (
+  listOfWords: string[],
+  targetWord: string,
+): number => {
+  let count = 0;
+  listOfWords.forEach((word) => {
+    count = word === targetWord ? count + 1 : count;
+  });
   return count;
 };
 

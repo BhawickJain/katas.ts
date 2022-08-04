@@ -1,12 +1,12 @@
-import countOccurances from "./count-occurances";
-import countOccurancesReduce from "./count-occurances-reduce";
-import OccuranceDictionary from "./OccuranceDictionary";
+import countOccurances from "./count-occurrences";
+import countOccurancesReduce from "./count-occurrences-reduce";
+import OccuranceDictionary from "./OccurrenceDictionary";
 
-type Implementation = (str: string[]) => OccuranceDictionary
+type Implementation = (str: string[]) => OccuranceDictionary;
 
 const implementations: Implementation[] = [
   countOccurances,
-  countOccurancesReduce
+  countOccurancesReduce,
 ];
 
 implementations.forEach((imp) => {
@@ -40,12 +40,24 @@ implementations.forEach((imp) => {
       Day: 1,
     });
 
-    expect(imp(["the","day","is","sunny","the","the","the","sunny","is","is"])).toStrictEqual({
+    expect(
+      imp([
+        "the",
+        "day",
+        "is",
+        "sunny",
+        "the",
+        "the",
+        "the",
+        "sunny",
+        "is",
+        "is",
+      ]),
+    ).toStrictEqual({
       the: 4,
       day: 1,
       is: 3,
       sunny: 2,
-    })
-
+    });
   });
 });
