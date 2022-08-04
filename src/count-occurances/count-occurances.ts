@@ -2,7 +2,6 @@ import OccuranceDictionary from "./OccuranceDictionary";
 
 const countOccurances = (listOfWords: string[]): OccuranceDictionary => {
   const occurances: OccuranceDictionary = {};
-  console.log(listOfWords)
 
   const uniqueWordList: string[] = getUniqueWordList(listOfWords);
   uniqueWordList.forEach((uniqueWord) => {

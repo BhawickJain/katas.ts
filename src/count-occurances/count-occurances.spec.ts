@@ -1,8 +1,12 @@
 import countOccurances from "./count-occurances";
+import countOccurancesReduce from "./count-occurances-reduce";
 import OccuranceDictionary from "./OccuranceDictionary";
 
-const implementations: [(str: string[]) => OccuranceDictionary] = [
+type Implementation = (str: string[]) => OccuranceDictionary
+
+const implementations: Implementation[] = [
   countOccurances,
+  countOccurancesReduce
 ];
 
 implementations.forEach((imp) => {
@@ -35,5 +39,13 @@ implementations.forEach((imp) => {
       ELLi: 3,
       Day: 1,
     });
+
+    expect(imp(["the","day","is","sunny","the","the","the","sunny","is","is"])).toStrictEqual({
+      the: 4,
+      day: 1,
+      is: 3,
+      sunny: 2,
+    })
+
   });
 });
