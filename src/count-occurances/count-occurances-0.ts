@@ -41,7 +41,7 @@ const expectedAnswer: Dictionary<number> = {
   b: 2,
 };
 
-const countOccurances = (word: string): [string, number][] => {
+const countOccurances = (word: string | string[]): [string, number][] => {
   let occurances: [string, number][] = [];
   const uniqueLetters: string = getUniqueLetters(word);
 
@@ -53,8 +53,8 @@ const countOccurances = (word: string): [string, number][] => {
   return occurances;
 };
 
-const getUniqueLetters = (word: string) => {
-  let uniqueLetters = "";
+const getUniqueLetters = (word: string | string[]) => {
+  let uniqueLetters: string | string[] = typeof word === "string" ? "" : [];
 
   for (const letter of word) {
     // if letter is not inside uniqueLetters
@@ -68,7 +68,7 @@ const getUniqueLetters = (word: string) => {
   return uniqueLetters;
 };
 
-const countOccurance = (char: string, word: string) => {
+const countOccurance = (char: string, word: string | string[]) => {
   let count = 0;
 
   for (const letter of word) {

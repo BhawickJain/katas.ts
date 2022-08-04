@@ -59,5 +59,9 @@ implementations.forEach((imp) => {
       u: 1,
       p: 1,
     });
+    expect(imp("Elli ELLi ELLi Day".split(/W/))).toStrictEqual({
+      ELLi: 3,
+      Day: 1,
+    });
   });
 });

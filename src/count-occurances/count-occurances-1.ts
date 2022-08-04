@@ -36,7 +36,7 @@ RETURN count
 
 import Dictionary from "./Dictionary";
 
-const countOccurancesOne = (word: string): Dictionary<number> => {
+const countOccurancesOne = (word: string | string[]): Dictionary<number> => {
   let occurances: Dictionary<number> = {};
 
   const uniqueLetters: string = getUniqueLetters(word);
@@ -52,7 +52,7 @@ const countOccurancesOne = (word: string): Dictionary<number> => {
   return occurances;
 };
 
-const getUniqueLetters = (word: string) => {
+const getUniqueLetters = (word: string | string[]) => {
   let uniqueLetters = "";
 
   for (const letter of word) {
@@ -67,7 +67,7 @@ const getUniqueLetters = (word: string) => {
   return uniqueLetters;
 };
 
-const countOccurance = (char: string, word: string) => {
+const countOccurance = (char: string, word: string | string[]) => {
   let count = 0;
 
   for (const letter of word) {

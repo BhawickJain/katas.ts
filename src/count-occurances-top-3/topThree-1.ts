@@ -4,7 +4,7 @@ import convertObjectToArray from "./convertObjectToArray";
 
 type Tuple = [string, number];
 
-const topThreeOne = (inputString: string): Tuple[] => {
+const topThreeOne = (inputString: string | string[]): Tuple[] => {
   const occurancesObject: Dictionary<number> = countOccurancesOne(inputString);
   const occurancesArray: Tuple[] = Object.entries(occurancesObject);
 
