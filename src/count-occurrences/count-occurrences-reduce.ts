@@ -17,5 +17,3 @@ const updateWordFrequency = (
 };
 
 export default countOccurancesReduce;
-
-const frequencyArray = [{ word: 9 }];
