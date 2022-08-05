@@ -1,8 +1,6 @@
-import axios from 'axios';
-
 //moby dick
-axios.get("https://www.gutenberg.org/files/2701/2701-0.txt")
-    .then(res => res.data.toString())
+fetch("https://www.gutenberg.org/files/2701/2701-0.txt")
+    .then(data => data.text())
     .then(processText)
     .catch(err => console.error(err))
 
