@@ -22,3 +22,18 @@ test("reduce returns a flattened array of numbers", () => {
     const flatten = (a: number[], b: number[]): number[] => [...a, ...b]
     expect(reduce(inputArrayNested, flatten, [])).toStrictEqual([1, 2, 3, 4, 5, 6])
 })
+
+
+
+
+
+
+
+
+test("reduce returns a flattened array of numbers", () => {
+    const inputArrayNested : number[][] = [[1], [2, 3], [4, 5, 6]]
+    const flatten = <T>(a: T[], b: T[]): T[] => [...a, ...b]
+    expect(reduce(inputArrayNested, flatten<number>, [])).toStrictEqual([1, 2, 3, 4, 5, 6])
+
+    expect(reduce(inputArrayNested, (a: number[], b: number[]) => flatten<number>(a, b), [])).toStrictEqual([1, 2, 3, 4, 5, 6])
+})
