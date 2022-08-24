@@ -7,10 +7,10 @@ import { GuessMark } from "./GuessMark";
 export const wordle = (guessWord: string, targetWord: string): GuessMark[] => {
   const guessArray = lowercaseAndSplitIntoArray(guessWord);
   const targetArray = lowercaseAndSplitIntoArray(targetWord);
-  let  unmarkedTargetChars: string[] = [];
+  const unmarkedTargetChars: string[] = [];
   const markedWordle: GuessMark[] = [];
 
-  for (let pos in guessArray) {
+  for (const pos in guessArray) {
     if (guessArray[pos] === targetArray[pos]) {
       markedWordle.push("MATCH");
     } else {
@@ -19,25 +19,24 @@ export const wordle = (guessWord: string, targetWord: string): GuessMark[] => {
     }
   }
 
-    console.log("unmarkedTargetChars", unmarkedTargetChars);
+  console.log("unmarkedTargetChars", unmarkedTargetChars);
   console.log("guessWord", guessArray);
   console.log("markedWordle", markedWordle);
-  for (let pos in markedWordle) {
+  for (const pos in markedWordle) {
     if (markedWordle[pos] === "NOT_PRESENT") {
       const indexOfNotPresentWorld = unmarkedTargetChars.indexOf(
         guessArray[pos],
       );
-    //   console.log("index", indexOfNotPresentWorld)
+      //   console.log("index", indexOfNotPresentWorld)
       if (indexOfNotPresentWorld !== -1) {
-        console.log('letter:', guessArray[pos], 'marked wrong position')
+        console.log("letter:", guessArray[pos], "marked wrong position");
         markedWordle[pos] = "BAD_POSITION";
-        console.log(unmarkedTargetChars)
-        unmarkedTargetChars[indexOfNotPresentWorld] = '*'
-        console.log(unmarkedTargetChars)
+        console.log(unmarkedTargetChars);
+        unmarkedTargetChars[indexOfNotPresentWorld] = "*";
+        console.log(unmarkedTargetChars);
+      }
     }
-}
-}
-
+  }
 
   return markedWordle;
 };
@@ -53,6 +52,6 @@ function lowercaseAndSplitIntoArray(inputString: string): string[] {
 }
 
 export function removeItemAtIndex<T>(array: T[], position: number): T[] {
-    const newArray:T[] = array.filter((el, i) => i !== position)
-    return newArray
+  const newArray: T[] = array.filter((el, i) => i !== position);
+  return newArray;
 }

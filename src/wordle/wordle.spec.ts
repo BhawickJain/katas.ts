@@ -24,5 +24,5 @@ test("wordle returns an array of positions marks for a given guess and target wo
 });
 
 test("removeAtPosition removes item of an array a given position", () => {
-    expect(removeItemAtIndex([1, 2, 3], 2)).toStrictEqual([1, 2])
-})
+  expect(removeItemAtIndex([1, 2, 3], 2)).toStrictEqual([1, 2]);
+});
