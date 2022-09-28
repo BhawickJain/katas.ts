@@ -1,10 +1,10 @@
 const map = <TypeA, TypeB>(
-  arr: Array<TypeA>,
+  inputArray: TypeA[],
   fn: (el: TypeA) => TypeB,
-): Array<TypeA | TypeB> => {
-  const mappedArray: Array<TypeB> = [];
+): TypeB[] => {
+  const mappedArray: TypeB[] = [];
 
-  arr.forEach((el) => {
+  inputArray.forEach((el) => {
     mappedArray.push(fn(el));
   });
 
