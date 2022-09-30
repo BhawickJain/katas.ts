@@ -5,13 +5,15 @@ import {
 } from "./timing-function-performance";
 import { printTable } from "console-table-printer";
 
+// TODO create a environment var to disable expensive tests in github actions
+
 // disable jest `console.log` tags
 // https://stackoverflow.com/questions/50942189/how-to-disable-jest-console-log-tags?noredirect=1&lq=1
 beforeEach(() => {
   global.console = require("console");
 });
 
-test("timeIt can return the runtime on array add item operations", () => {
+test.skip("timeIt can return the runtime on array add item operations", () => {
   let n: number;
   let listOfItems: number[];
   let result: timeItResult[];
@@ -42,7 +44,7 @@ test("timeIt can return the runtime on array add item operations", () => {
   printTable(result);
 });
 
-test("timeIt can return the runtime on array remove item operations", () => {
+test.skip("timeIt can return the runtime on array remove item operations", () => {
   let n: number;
   let listOfItems: number[];
   let result: timeItResult[];
