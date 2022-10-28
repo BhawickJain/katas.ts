@@ -3,7 +3,7 @@ import { getWidthLimitedColumnsArray } from "console-table-printer/dist/src/util
 
 export type Program = string[]
 export type Registers = Record<string, number>
-export type Arguments = Record<string, number>
+export type Arguments = string[]
 export type LineNumber = number;
 export interface ExecutionContext {
 	registers: Registers,
@@ -36,6 +36,8 @@ export function simple_assembler(program: Program): Registers {
 
 
 	while (executionContext.lineNumber < program.length) {
+	// for (let i = 0; i < 19; i++) {
+		console.log(executionContext)
 		const line: string = getLine(executionContext.lineNumber, program)
 		const operation: Operation | null = detectOperation(operations, line)
 		if (operation) {
@@ -44,11 +46,11 @@ export function simple_assembler(program: Program): Registers {
 		executionContext["registers"] = {...newExecutionContext.registers}
 
 		// TODO GOTO
-		executionContext.lineNumber = newExecutionContext.lineNumber
 		executionContext["lineNumber"] = newExecutionContext.lineNumber
 		} else {
 			console.error("Error Occured", executionContext)
 		}
+		console.log(executionContext.registers)
 	}
 	
 
@@ -71,6 +73,102 @@ export function detectOperation(operationList: OperationList, line: string): Ope
 	return null
 }
 
+	const	movGetArgs = (token: string): Arguments => {
+		const matched = Array.from(token.matchAll(/^mov (.+?) (.*?)$/g))
+		if (matched) {
+			return [matched[0][1], matched[0][2]]
+		} else {
+			throw "mov get args failed"
+		}
+	}
+
+	const	movEvaluate = (args: Arguments, context: ExecutionContext) => {
+		console.log(args)
+		// evaluateArgument
+		if (isNaN(Number.parseInt(args[1]))) {
+			console.log('get number from register', args[1])
+			console.log(context.registers[args[1]])
+		context.registers[args[0]] = context.registers[args[1]]
+			console.log(context.registers[args[0]])
+		} else {
+		context.registers[args[0]] = parseInt(args[1])
+		}
+		context.lineNumber += 1
+		return context
+	}
+
+	export const mov: Operation = {
+		identify: (token: string): boolean => token.match(/^mov (.+?) (.*?)$/g) !== null, 
+		getArgs: movGetArgs,
+		evaluate: movEvaluate,
+	}
+
+	const	incGetArgs = (token: string): Arguments => {
+		const matched = Array.from(token.matchAll(/^inc (.+?)$/g))
+		if (matched) {
+			return [matched[0][1]]
+		} else {
+			throw "mov get args failed"
+		}
+	}
+
+	const	incEvaluate = (args: Arguments, context: ExecutionContext) => {
+		context.registers[args[0]] += 1
+		context.lineNumber += 1
+		return context
+	}
+
+	export const inc: Operation = {
+		identify: (token: string): boolean => token.match(/^inc (.+?)$/g) !== null, 
+		getArgs: incGetArgs,
+		evaluate: incEvaluate,
+	}
+
+	const	decGetArgs = (token: string): Arguments => {
+		const matched = Array.from(token.matchAll(/^dec (.+?)$/g))
+		if (matched) {
+			return [matched[0][1]]
+		} else {
+			throw "mov get args failed"
+		}
+	}
+
+	const decEvaluate = (args: Arguments, context: ExecutionContext) => {
+		context.registers[args[0]] -= 1
+		context.lineNumber += 1
+		return context
+	}
+
+	export const dec: Operation = {
+		identify: (token: string): boolean => token.match(/^dec (.+?)$/g) !== null, 
+		getArgs: decGetArgs,
+		evaluate: decEvaluate,
+	}
+
+	const	jnzGetArgs = (token: string): Arguments => {
+		const matched = Array.from(token.matchAll(/^jnz (.+?) (.*?)$/g))
+		if (matched) {
+			return [matched[0][1], matched[0][2]]
+		} else {
+			throw "jnz get args failed"
+		}
+	}
+
+	const	jnzEvaluate = (args: Arguments, context: ExecutionContext) => {
+		if (context.registers[args[0]] !== 0) {
+			context.lineNumber += parseInt(args[1])
+		} else {
+			context.lineNumber += 1
+		}
+		return context
+	}
+
+	export const jnz: Operation = {
+		identify: (token: string): boolean => token.match(/^jnz (.+?) (.*?)$/g) !== null, 
+		getArgs: jnzGetArgs,
+		evaluate: jnzEvaluate,
+	}
+
 	const operations: OperationList = {
 		"mov": mov,
 		"inc": inc,
@@ -78,8 +176,3 @@ export function detectOperation(operationList: OperationList, line: string): Ope
 		"jnz": jnz,
 	}
 
-	export const mov: Operation = {
-		identify: (token: string) => true, 
-		getArgs: (token: string) => ({}), 
-		evaluate: (args: Arguments, context: ExecutionContext) => ({registers: {}, lineNumber: 0})
-	}
