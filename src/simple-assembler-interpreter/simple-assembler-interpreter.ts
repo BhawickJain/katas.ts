@@ -25,6 +25,10 @@ WHILE lineNumber < length of interstructionArray
 	spread new executionContext
 
 */
+/*
+CodeWars Problem:
+https://www.codewars.com/kata/58e24788e24ddee28e000053/train/javascript
+*/
 export function simple_assembler(program: Program): Registers {
   const executionContext = {
     registers: {},
