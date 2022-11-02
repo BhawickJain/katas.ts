@@ -1,4 +1,4 @@
-import partition from "./partition-high-order";
+import {partition} from "@bhawick/hiorder";
 
 test("partition returns two array of numbers separated by whether they are odd", () => {
   function isOdd(n: number) {

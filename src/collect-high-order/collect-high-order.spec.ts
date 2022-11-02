@@ -1,4 +1,4 @@
-import collect from "./collect-high-order";
+import {collect} from "@bhawick/hiorder";
 
 test("collect return a collection of start definitions repeatedly", () => {
   function createStar() {

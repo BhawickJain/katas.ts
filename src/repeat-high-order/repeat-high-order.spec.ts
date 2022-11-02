@@ -1,4 +1,4 @@
-import repeat from "./repeat-high-order";
+import {repeat} from "@bhawick/hiorder";
 
 test("repeat calls a function a certain specified number of times", () => {
   const print = jest.fn(); // empty function returns void

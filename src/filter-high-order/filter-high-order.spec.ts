@@ -1,4 +1,4 @@
-import filter from "./filter-high-order";
+import { filter } from "@bhawick/hiorder"
 
 test("1 -- Filter return positive numbers when given an array of numbers and a isPositive function", () => {
   const isPositive = (num: number): boolean => num > 0;
