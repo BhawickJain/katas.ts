@@ -7,3 +7,6 @@ test("maxSum can find the max sum of consecutive numbers of lenght N in an array
   expect(maxSubarraySum([3, -2, 7, -4, 1, -1, 4, -2, 1], 2)).toBe(5);
   expect(maxSubarraySum([2, 3], 3)).toBe(null);
 });
+
+// TODO write acceptance test to ensure solution is within
+// time and space complexity constraints
