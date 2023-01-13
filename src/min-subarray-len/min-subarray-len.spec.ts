@@ -10,3 +10,6 @@ test("minSubArrayLen returns the correct min length of items needed to add up to
     expect(minSubArrayLen([1,4,16,22,5,7,8,9,10],95)).toBe(0) //
 
 })
+
+// TODO write acceptance test to ensure solution is within
+// time and space complexity constraints
