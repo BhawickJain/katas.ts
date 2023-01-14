@@ -6,3 +6,6 @@ test("sameFrequency returns ture for numbers that the same frequency of digits, 
   expect(sameFrequency(3589578, 5879385)).toBe(true);
   expect(sameFrequency(22, 222)).toBe(false);
 });
+
+// TODO write acceptance test to ensure solution is within
+// time and space complexity constraints
