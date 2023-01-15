@@ -1,6 +1,8 @@
 /**
  * return boolean evalation of whether at least one pair of numbers exists in a given array that matches a target value
  * O(n) time, O(1) space
+ * uses the mutliple pointers technique
+ * Algorithm:
  * 1) set low at 0, high at last item index
  * 2) take average of two values at indices low, high
  * 3) if too high, make mid point index at high
