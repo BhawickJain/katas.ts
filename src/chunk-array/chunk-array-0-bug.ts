@@ -17,7 +17,7 @@ chunk([10, 20, 30, 40, 50], 2) -> [ [10, 20], [30, 40], [50] ]
 chunk([10, 20, 30, 40, 50], 4) -> [[10, 20, 30, 40], [50]]
 */
 
-const chunkArray = (arr: Array<number>, size: number) => {
+const chunkArray = (arr: Array<number>, size: number): number[] => {
   return recurseChunkArray([], arr, size);
 };
 
