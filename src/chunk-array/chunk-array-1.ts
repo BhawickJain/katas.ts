@@ -1,4 +1,7 @@
-const splitArrays = (inputArray: number[], groupMaxSize: number) => {
+const splitArrays = (
+  inputArray: number[],
+  groupMaxSize: number,
+): number[][] => {
   const sharedArrays = [];
   let transformedStartingPoint = 0;
   let transformedMax = groupMaxSize;
