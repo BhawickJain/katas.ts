@@ -19,7 +19,7 @@ beforeEach(() => {
 for (const imp of implementations) {
   test.skip(`time ${imp.name} algorithm`, () => {
     const n = 1_000;
-    const nums: number[] = [...Array(n)].map((el) => 0);
+    const nums: number[] = [...Array(n)].map(() => 0);
     let listOfItems: number[];
     const target = 24;
     const result: timeItResult[] = [];
