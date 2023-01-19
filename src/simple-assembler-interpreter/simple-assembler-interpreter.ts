@@ -85,7 +85,10 @@ const movGetArgs = (token: string): Arguments => {
   }
 };
 
-const movEvaluate = (args: Arguments, context: ExecutionContext) => {
+const movEvaluate = (
+  args: Arguments,
+  context: ExecutionContext,
+): ExecutionContext => {
   // evaluateArgument
   if (isNaN(Number.parseInt(args[1]))) {
     context.registers[args[0]] = context.registers[args[1]];
@@ -112,7 +115,10 @@ const incGetArgs = (token: string): Arguments => {
   }
 };
 
-const incEvaluate = (args: Arguments, context: ExecutionContext) => {
+const incEvaluate = (
+  args: Arguments,
+  context: ExecutionContext,
+): ExecutionContext => {
   context.registers[args[0]] += 1;
   context.lineNumber += 1;
   return context;
@@ -133,7 +139,10 @@ const decGetArgs = (token: string): Arguments => {
   }
 };
 
-const decEvaluate = (args: Arguments, context: ExecutionContext) => {
+const decEvaluate = (
+  args: Arguments,
+  context: ExecutionContext,
+): ExecutionContext => {
   context.registers[args[0]] -= 1;
   context.lineNumber += 1;
   return context;
@@ -154,7 +163,10 @@ const jnzGetArgs = (token: string): Arguments => {
   }
 };
 
-const jnzEvaluate = (args: Arguments, context: ExecutionContext) => {
+const jnzEvaluate = (
+  args: Arguments,
+  context: ExecutionContext,
+): ExecutionContext => {
   if (context.registers[args[0]] !== 0) {
     context.lineNumber += parseInt(args[1]);
   } else {
