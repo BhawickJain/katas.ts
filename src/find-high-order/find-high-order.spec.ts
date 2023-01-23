@@ -52,5 +52,5 @@ test("find can handle custom typed arrays", () => {
     name: "temi",
     age: 25,
   });
-  expect(find(people, (per) => false)).toStrictEqual(undefined);
+  expect(find(people, () => false)).toStrictEqual(undefined);
 });
