@@ -1,4 +1,4 @@
-const reverseString = (inputString: string) => {
+const reverseString = (inputString: string): string => {
   return reverseStringRecursively(inputString, 0);
 };
 const reverseStringRecursively = (
